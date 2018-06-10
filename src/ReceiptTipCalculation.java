@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class ReceiptTipCalculation {
@@ -11,10 +12,10 @@ public class ReceiptTipCalculation {
         double tipAmount = user_input.nextDouble() / 100;
         double tipCalc = billTotal * tipAmount;
         double payTotalCalc = tipCalc + billTotal;
-        String formattedTip = String.format("%.1f", tipCalc);
-        String formattedPaytotal = String.format("%.1f", payTotalCalc);
 
-        System.out.println("Your tip = " + formattedTip);
-        System.out.println("You pay = " + formattedPaytotal);
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        
+        System.out.println("Your tip = " + formatter.format(tipCalc));
+        System.out.println("You pay = " + formatter.format(payTotalCalc));
     }
 }
